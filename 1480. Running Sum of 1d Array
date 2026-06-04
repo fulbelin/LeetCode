@@ -1,0 +1,19 @@
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        list = []
+        length = len(nums)
+        length_list = len(list)
+        sum = 0
+        while length_list < length :
+            for i,v in enumerate(nums):
+                sum += v
+                list.append(sum)
+                length_list = len(list)
+        return list        
+
+
+

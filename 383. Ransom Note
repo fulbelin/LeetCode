@@ -1,0 +1,25 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        list = []
+        magazine = [c for c in magazine]  
+        length = len(ransomNote)
+        yes_count = 0
+        no_count = 0
+
+        for i, v in enumerate(ransomNote):
+            if v in magazine:
+                list.append(v)
+                magazine.remove(v)         
+                yes_count += 1
+            else:
+                no_count += 1
+
+        if no_count == 0 and yes_count == length:
+            return True
+        else:
+            return False

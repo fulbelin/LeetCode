@@ -1,0 +1,15 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        char = {}
+
+        for i in s:
+            if i in char:
+                char[i] += 1
+            else:
+                char[i] = 1
+
+        for i, v in char.items():
+            if v == 1:
+                return s.find(i)
+
+        return -1

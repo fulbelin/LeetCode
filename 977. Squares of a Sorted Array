@@ -1,0 +1,21 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        length = len(nums)
+        result = [0] * length
+        left_pointer = 0
+        right_pointer = length - 1
+        insert_position = length - 1
+        while left_pointer <= right_pointer:
+            left_square = nums[left_pointer] ** 2
+            right_square = nums[right_pointer] ** 2
+
+            if left_square > right_square:
+                result[insert_position] = left_square
+                left_pointer += 1
+            else:
+                result[insert_position] = right_square
+                right_pointer -= 1
+
+            insert_position -= 1
+
+        return result
